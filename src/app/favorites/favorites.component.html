@@ -1,0 +1,67 @@
+<div style="padding-top: 5.5%;">
+  <section class="page-header">
+      <div class="overly"></div> 	
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="content text-center">
+              <h1 class="mb-3 display-4 fw-bold"> My favorites </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+<br><br><br><br><br><br>
+
+<div class="row" >
+
+  <!-- Product1 -->
+  <div style="display: flex;justify-content: space-around;">
+   <div  *ngFor="let item of arr;let index as index" class="col-lg-4 col-12 col-md-6 col-sm-6 mb-5" style="width: 300px;height: 700px;" >
+     <div class="product border border-secondary" style="width: 400px; height: 500px; display: flex;justify-content: center;align-items: center;flex-direction: column;">
+      <div style="width: 50px; height: 50px;float: right;" (click)="deletefav(index)">
+        <i class="fas fa-window-close fa-lg" aria-hidden="true" style="color: #ff0000;width: 100% !important; height: 100% !important; "></i>
+
+      </div>
+       <div class="product-wrap">
+           <a [routerLink]="['/product-single/',item.id]">
+             <img class="img-fluid mb-3 img-first mt-2 mx-auto d-block" style="width: 200px;" [src]="item.imageCover.substr(19)" alt="product-img" />
+           </a>
+       </div>
+
+
+       <div class="product-info">
+           <h2 class="product-title h5 mb-0"><a href="#">{{item.title}}</a></h2>
+           <span class="price">
+               {{item.price}} DT
+           </span>
+       </div>
+       <br>
+       <a [routerLink]="['/product-single/',item.id]">
+       <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Quick View </button>
+       </a>
+       
+       <a (click)="addcart(index)">
+       <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Add to Cart </button>
+       </a>
+   </div>
+ </div>
+  </div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

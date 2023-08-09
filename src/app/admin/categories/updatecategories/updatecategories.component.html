@@ -1,0 +1,27 @@
+
+
+<form [formGroup]="myForm" (ngSubmit)="updateC()">
+  <div class="col-md-10">
+    <div style="display: flex;justify-content: center;">
+        <div class="card" style="width: 50rem; border-color: black; margin-top: 120px;">
+            <div class="card-body">
+              <h5 style="text-align: center;" class="card-title fs-4 mt-4">Update Categories</h5>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;"> Category Name</label>
+                <input formControlName="name" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2" id="exampleFormControlInput1" placeholder="Category Name">
+               </div>
+               <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.name.invalid && (myForm.controls.name.dirty || myForm.controls.name.touched)">
+                <div *ngIf="myForm.controls.name.hasError('required')">name is required</div>
+            </div>
+               
+              <br>
+              <div class="text-center">
+              <button  style="display: center; border-radius: 8px ; background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded">Update Categories</button>
+              </div>
+    
+              <br>
+            </div>
+          </div>
+      </div>
+      </div>
+</form>

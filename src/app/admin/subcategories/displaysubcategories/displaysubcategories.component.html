@@ -1,0 +1,32 @@
+
+          <div class="col-md-10" style="margin-left: 300px;">
+            <table class="table table-bordered" style="background-color: rgb(255, 255, 255); margin-top: 150px;">
+                <thead>
+                    <tr scope="col"><h1>All SubCategory</h1></tr>
+
+                  <tr>
+                    <th scope="col"><div class="text-black">ID</div></th>
+                    <th scope="col"><div class="text-black">SubCategorie Name</div></th>
+              <!--  <th scope="col"><div class="text-black">Categories Type</div></th>-->
+                    <th scope="col"><div class="text-black">Action</div></th>
+                </tr>
+                </thead>
+                <tbody >
+                  <tr *ngFor="let item of arr | paginate: { itemsPerPage: 3, currentPage: p };let index=index;let i as index">
+                    <td><div class="text-black">{{index+1}}</div></td>
+                    <td><div class="text-black">{{item.name}}</div></td>
+                  <!--  <td><div class="text-black">{{item.category}}</div></td>-->
+                    <td style="display: flex; justify-content: space-around;"> 
+                          <button class="btn btn-danger rounded" (click)="deletes(i)">delete</button></td>
+                  </tr>
+            
+                  
+                  
+                  </tbody>
+                  
+            </table>
+            <br><br><br>
+            <div style="display: flex; justify-content: center;">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+            </div>

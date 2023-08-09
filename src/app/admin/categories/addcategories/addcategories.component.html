@@ -1,0 +1,26 @@
+
+       
+<form [formGroup]="myForm" (ngSubmit)="addcat()">
+  <div class="col-md-10">
+    <div style="display: flex;justify-content: center; margin-top: 130px;">
+        <div class="card" style="width: 50rem; border-color: black;">
+            <div class="card-body">
+              <h5 style="text-align: center;" class="card-title fs-4 mt-4">Add Categories</h5>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">New Category</label>
+                <input formControlName="name" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2" id="exampleFormControlInput1" placeholder="New Category">
+               </div>
+               <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.name.invalid && (myForm.controls.name.dirty || myForm.controls.name.touched)">
+                <div *ngIf="myForm.controls.name.hasError('required')">name is required</div>
+            </div>
+              
+              <div class="text-center">
+              <button  style="display: center; border-radius: 8px ; background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded">Add Categories</button>
+              </div>
+    
+              <br>
+            </div>
+          </div>
+      </div>
+    </div>
+</form>

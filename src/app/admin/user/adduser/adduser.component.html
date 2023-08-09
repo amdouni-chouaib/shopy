@@ -1,0 +1,82 @@
+
+    <form [formGroup]="myForm" (ngSubmit)="valider()">
+        
+        
+        <div class="col-md-10">
+            <div style="display: flex;justify-content: center;">
+                <div class="card" style="width: 50rem; border-color: black;margin-top: 120px;">
+                    <div class="card-body">
+                      <h5 style="text-align: center;" class="card-title fs-4 mt-4">Add User</h5>
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Email</label>
+                        <input formControlName="email" type="text" class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Email">                      
+                      </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.email.invalid && (myForm.controls.email.dirty || myForm.controls.email.touched)">
+                        <div *ngIf="myForm.controls.email.hasError('required')">email is required</div>
+                        <div *ngIf="myForm.controls.email.hasError('email')">email is invalid</div>
+                    </div>
+                      
+                      <div class="mb-3">
+                        <label style="margin-left: 20px;">Username</label>
+                        <input formControlName="name" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Username">
+                        
+                      </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.name.invalid && (myForm.controls.name.dirty || myForm.controls.name.touched)">
+                        <div *ngIf="myForm.controls.name.hasError('required')">name is required</div>
+                    </div>
+                        
+                      <div class="mb-3">
+                        <label style="margin-left: 20px;">Password</label>
+                        <input formControlName="password" type="password" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Password">
+                        
+                      </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.password.invalid && (myForm.controls.password.dirty || myForm.controls.password.touched)">
+                        <div *ngIf="myForm.controls.password.hasError('required')">password is required</div>
+                        <div *ngIf="myForm.controls.password.hasError('minlength')">password minlength is 6</div>
+
+                      </div>
+                      <div class="mb-3">
+                        <label style="margin-left: 20px;">Confirm Password</label>
+                        <input formControlName="passwordConfirm" type="password" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Confirm Password">
+                        
+                      </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.passwordConfirm.invalid && (myForm.controls.passwordConfirm.dirty || myForm.controls.passwordConfirm.touched)">
+                        <div *ngIf="myForm.controls.passwordConfirm.hasError('required')">password Confirm is required</div>
+                        <div *ngIf="myForm.controls.passwordConfirm.hasError('minlength')">password Confirm minlength is 6</div>
+
+                       </div>
+                      <div class="mb-3">
+                        <label style="margin-left: 20px;">Profile Picture</label>
+                        <input class="form-control" id="a" type="file" (change)="onFileSelectedd($event,20)" formControlName="profileImg">
+                        
+                      </div>
+                      <div class="mb-3">
+                        <label style="margin-left: 20px;">Phone</label><br>
+                        <input formControlName="phone" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Phone">
+                        
+                      </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.phone.invalid && (myForm.controls.phone.dirty || myForm.controls.phone.touched)">
+                        <div *ngIf="myForm.controls.phone.hasError('required')">phone is required</div>
+                    </div>
+                      <label style="margin-left: 20px;">Role</label>
+                      <div class="mb-3" >
+
+                        <select class="form-control" formControlName="role">
+                            <option value="admin">admin</option>
+                            <option value="user">user</option>
+                        </select>
+                      </div>
+                      <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.role.invalid && (myForm.controls.role.dirty || myForm.controls.role.touched)">
+                        <div *ngIf="myForm.controls.role.hasError('required')">role is required</div>
+                    </div>
+                      <div class="text-center">
+                      <button  style="display: center; border-radius: 8px; background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded"  >Add User</button>
+                      </div>
+            
+                      <br>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </form>
+

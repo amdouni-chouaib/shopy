@@ -1,0 +1,22 @@
+.btn  {
+    background-color: #fb5c42;
+    color: white;   
+}
+
+.toast-success.ng-trigger.ng-trigger-toastAnimation {
+    transition: transform 0.5s ease-out;
+    transform: translateX(100%);
+  }
+  
+  .toast-success.ng-trigger.ng-trigger-toastAnimation.ng-leave {
+    transform: translateX(0%);
+  }
+  
+  .toast-success.ng-trigger.ng-trigger-toastAnimation.ng-leave.ng-leave-active {
+    transform: translateX(100%);
+  }
+  .toast-success {
+    border: 2;
+    background-color: green;
+  }
+  

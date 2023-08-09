@@ -1,0 +1,20 @@
+.btn  {
+    background-color: #fb5c42;
+    color: white;  
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.btn1  {
+    background-color: #b4b3b3;
+    color: black;  
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 10px;
+}
+.fa-lg{
+    float: right;
+    margin-top: 23px;
+    font-size: 50px !important;
+}

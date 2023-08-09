@@ -1,0 +1,13 @@
+
+<div *ngIf="checknavbarr()"  >
+    <app-headers></app-headers>
+</div>
+
+<router-outlet></router-outlet>
+
+
+
+<div *ngIf="!checknavbarr()">
+    <app-header></app-header>
+    <app-footer></app-footer>
+</div>

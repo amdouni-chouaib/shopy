@@ -1,0 +1,24 @@
+@media (max-width: 767.98px) { 
+    .border-sm-start-none { border-left: none !important; } 
+}
+@media (max-width: 767.98px) { 
+    .border-sm-start-none { border-left: none !important; } 
+}
+.container{
+    max-width: 90%;
+}
+.ok {
+    margin: 0px;
+    height: 100%;
+  }
+.btn{
+    background-color: #fb5c42;
+    color: white;  
+}
+.btn1  {
+    background-color: #b4b3b3;
+    color: black;  
+    font-size: 15px;
+    padding: 10px;
+    margin-left: 10px;
+}

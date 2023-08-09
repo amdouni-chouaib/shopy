@@ -1,0 +1,130 @@
+<div style="padding-top: 7%;">
+<section class="page-header">
+    <div class="overly"></div> 	
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="content text-center">
+            <h1 class="mb-3 display-4 fw-bold"> List of Products </h1>
+            <a href="ajout-produit">
+                <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> <span class="bi bi-bag-plus-fill me-2" style="margin-left: 8px;"></span> 
+                    Add new Product
+                </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section products-main" >
+    <div class="container" >
+          
+      <div class="row" >
+        <!-- Product1 -->
+        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5"  *ngFor="let item of arr;let index as index">
+            <div class="product border border-secondary" style="height: 600px;height: 600px; display: flex;justify-content: center;align-items: center;flex-direction: column;" >
+              <div class="product-wrap">
+                  <a [routerLink]="['/product-single/',item._id]">
+                    <img class="img-fluid w-100 mb-3 img-first" [src]="item.imageCover.substr(19)" alt="product-img" />
+                  </a>
+              </div>
+  
+              <div class="product-info">
+                  <h2 class="product-title h4 mb-0 fw-bold"> {{item.title}} </h2>
+                  <span class="price">
+                      {{item.price}} DT
+                  </span>
+                  <br>
+                   <!-- <a href="update-product">
+                  <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Update </button>
+                </a> -->
+                
+                
+                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm" (click)="deletep(index)"> Delete </button>
+                  
+                  
+              </div>
+              <br>
+          </div>
+        </div>
+
+        <!-- Product2
+        <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+          <div class="product border border-secondary">
+              <div class="product-wrap">
+                  <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/women9.jpg" alt="product-img" /></a>
+              </div>
+                
+              <div class="product-info">
+                  <h2 class="product-title h4 mb-0 fw-bold"> Trouser </h2>
+                  <span class="price">
+                      29.10 DT
+                  </span>
+                  <br>
+                  <a href="update-product">
+                    <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Update </button>
+                  </a>
+
+                  <a href="">
+                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Delete </button>
+                  </a>
+              </div>
+              <br>
+          </div>
+        </div> -->
+  
+        <!-- Product3 -->
+        <!-- <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+          <div class="product border border-secondary">
+              <div class="product-wrap">
+                  <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/women2.jpg" alt="product-img" /></a>
+              </div>
+    
+              <div class="product-info">
+                  <h2 class="product-title h4 mb-0 fw-bold"> Shirt </h2>
+                  <span class="price">
+                      355.00 DT
+                  </span>
+                  <br>
+                  <a href="update-product">
+                    <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Update </button>
+                  </a>
+
+                  <a href="">
+                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Delete </button>
+                  </a>
+              </div>
+              <br>
+          </div>
+        </div> -->
+  
+        <!-- Product4 -->
+        <!-- <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5">
+          <div class="product border border-secondary">
+              <div class="product-wrap">
+                  <a href="product-single"><img class="img-fluid w-100 mb-3 img-first" src="assets/images/women12.jpg" alt="product-img" /></a>
+              </div>
+    
+              <div class="product-info">
+                  <h2 class="product-title h4 mb-0 fw-bold"> Shoes </h2>
+                  <span class="price">
+                      249 DT
+                  </span>
+                  <br>
+                  <a href="update-product">
+                    <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Update </button>
+                  </a>
+                
+                  <a href="">
+                  <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm"> Delete </button>
+                  </a>
+              </div>
+              <br>
+          </div>
+        </div> -->
+  
+      </div>
+    </div>
+  </section>
+  </div>

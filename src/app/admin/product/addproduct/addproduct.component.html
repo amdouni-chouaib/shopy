@@ -1,0 +1,95 @@
+
+        
+<form [formGroup]="myForm" (ngSubmit)="validerrP()">
+    <div class="col-md-10">
+        <div style="display: flex;justify-content: center; border-color: black; margin-top: 40px;">
+          <div class="card" style="width: 50rem;">
+              <div class="card-body">
+                <h5 style="text-align: center;" class="card-title fs-4 mt-4">Add Product</h5>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Title</label>
+                  <input formControlName="title" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2" id="exampleFormControlInput1" placeholder="Product Title">
+                 </div>
+                 <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.title.invalid && (myForm.controls.title.dirty || myForm.controls.title.touched)">
+                    <div *ngIf="myForm.controls.title.hasError('required')">Product title  is required</div>
+                    <div *ngIf="myForm.controls.title.hasError('minlength')">Product title  minlength is 3</div>
+
+                  </div>
+                <div class="mb-3">
+                  <label style="margin-left: 20px;">Description</label>
+                  <textarea formControlName="description" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2"  placeholder="Description"></textarea>
+              
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.description.invalid && (myForm.controls.description.dirty || myForm.controls.description.touched)">
+                  <div *ngIf="myForm.controls.description.hasError('required')">Description is required</div>
+                  <div *ngIf="myForm.controls.description.hasError('minlength')">Description minlength is 40</div>
+
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput4" class="form-label" style="margin-left: 20px;">Category</label>
+                    <select (change)="getcat()" [(ngModel)]="values" formControlName="category" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
+                     <option *ngFor="let item of arr"  [value]="item.id"  >{{item.name}}</option>
+                     
+                    </select>
+                </div>
+                
+               <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.category.invalid && (myForm.controls.category.dirty || myForm.controls.category.touched)">
+                    <div *ngIf="myForm.controls.category.hasError('required')">Category is required</div>
+                  </div>
+                <div class="mb-3" >
+                    <label for="exampleFormControlInput4" class="form-label" style="margin-left: 20px;">SubCategories</label>
+                    <select formControlName="subcategories" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
+                     <option *ngFor="let item of subc"  [value]="item._id"  >{{item.name}}</option>
+    
+                    </select>
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.subcategories.invalid && (myForm.controls.subcategories.dirty || myForm.controls.subcategories.touched)">
+                    <div *ngIf="myForm.controls.subcategories.hasError('required')">SubCategory is required</div>
+                  </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlInput5" class="form-label rounded" style="margin-left: 20px;">Price</label>
+                  <input formControlName="price" type="number" style="margin-left: 20px; width: 750px;" class="form-control rounded" id="exampleFormControlInput1" placeholder="Price">
+                
+                </div>
+                <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.price.invalid && (myForm.controls.price.dirty || myForm.controls.price.touched)">
+                    <div *ngIf="myForm.controls.price.hasError('required')">Price is required</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput5" class="form-label rounded" style="margin-left: 20px;">Price After Discount</label>
+                    <input formControlName="priceAfterDiscount" type="number" style="margin-left: 20px; width: 750px;" class="form-control rounded" id="exampleFormControlInput1" placeholder="Price">
+                  
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.priceAfterDiscount.invalid && (myForm.controls.priceAfterDiscount.dirty || myForm.controls.priceAfterDiscount.touched)">
+                    <div *ngIf="myForm.controls.priceAfterDiscount.hasError('required')">Price After Discount is required</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput5" class="form-label rounded" style="margin-left: 20px;">Product Picture</label>
+                    <input formControlName="imageCover" (change)="onFileSelectedd($event,20)" type="file" style="margin-left: 20px; width: 750px;" class="form-control rounded" id="exampleFormControlInput1" placeholder="Price">
+                  
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.imageCover.invalid && (myForm.controls.imageCover.dirty || myForm.controls.imageCover.touched)">
+                    <div *ngIf="myForm.controls.imageCover.hasError('required')">Picture  is required</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput5" class="form-label rounded" style="margin-left: 20px;">Quantity</label>
+                    <input formControlName="quantity" type="number" style="margin-left: 20px; width: 750px;" class="form-control rounded" id="exampleFormControlInput1" placeholder="Quantity">
+                  
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.quantity.invalid && (myForm.controls.quantity.dirty || myForm.controls.quantity.touched)">
+                    <div *ngIf="myForm.controls.quantity.hasError('required')">Quantity is required</div>
+                  </div>
+                  <div class="mb-3">
+                    <input formControlName="createdBy" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded" id="exampleFormControlInput1" placeholder="Price" hidden>
+                  
+                  </div>
+    
+                <div class="text-center">
+                <button  style="display: center; background-color: #fb5c42; color: #ffffff; border-radius: 8px ;" type="submit" class="btn rounded">Add Product</button>
+                </div>
+                <br>
+      
+              </div>
+            </div>
+        </div>
+    </div>
+</form>

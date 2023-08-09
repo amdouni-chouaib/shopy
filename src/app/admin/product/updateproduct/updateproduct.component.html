@@ -1,0 +1,67 @@
+
+
+<form [formGroup]="myForm" (ngSubmit)="validerr()">
+  <div class="col-md-10">
+    <div style="display: flex;justify-content: center; margin-top: 30px;">
+        <div class="card" style="width: 50rem; border-color: black;">
+            <div class="card-body">
+              <h5 style="text-align: center;" class="card-title fs-4 mt-4">Update Product</h5>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Title</label>
+                <input type="text" formControlName="title"  class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Product Title">
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.title.invalid && (myForm.controls.title.dirty || myForm.controls.title.touched)">
+                <div *ngIf="myForm.controls.title.hasError('required')">Title is required</div>
+                <div *ngIf="myForm.controls.title.hasError('minlength')">Title minlength is 3</div>
+
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label" style="margin-left: 20px;">Description</label>
+                <textarea type="text" formControlName="description" class="form-control rounded mt-2"  style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Description"></textarea>
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.description.invalid && (myForm.controls.description.dirty || myForm.controls.description.touched)">
+                <div *ngIf="myForm.controls.description.hasError('required')">description is required</div>
+              </div>
+             <div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput2" class="form-label" style="margin-left: 20px;">Category</label>
+                <select formControlName="category" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
+                 <option class="mystyle">Select Category</option>
+                  <option *ngFor="let item of cat" [value]="item._id">{{item.name}}</option>
+                </select>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.category.invalid && (myForm.controls.category.dirty || myForm.controls.category.touched)">
+                <div *ngIf="myForm.controls.category.hasError('required')">Category is required</div>
+              </div>
+            <div class="mb-3">
+                
+                <label for="exampleFormControlInput4" class="form-label" style="margin-left: 20px;">SubCategory</label>
+                <select formControlName="subcategories" class="form-select mt-2" aria-label="Default select example" style="margin-left: 20px; width: 750px;">
+                 <option class="mystyle">Select Category</option>
+                 <option  *ngFor="let item of subcF;let index=index" class="mystyle" [value]="item[index]._id">{{item[index].name}}</option>
+             
+                </select>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.subcategories.invalid && (myForm.controls.subcategories.dirty || myForm.controls.subcategories.touched)">
+                <div *ngIf="myForm.controls.subcategories.hasError('required')">Subcategory is required</div>
+              </div>
+             </div>
+    
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">Price</label>
+                <input type="number" formControlName="price" class="form-control rounded mt-2" style="margin-left: 20px; width: 750px;" id="exampleFormControlInput1" placeholder="Price">
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.price.invalid && (myForm.controls.price.dirty || myForm.controls.price.touched)">
+                <div *ngIf="myForm.controls.price.hasError('required')">Price is required</div>
+              </div>
+              <br>
+              <div class="text-center">
+              <button style="display: center; border-radius: 8px ;  background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded">Update Product</button>
+              </div>
+    
+              <br>
+            </div>
+          </div>
+      </div>
+      </div>
+</form>

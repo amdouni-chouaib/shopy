@@ -1,0 +1,119 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-black w-100 navigation fixed-top" id="navbar">
+  <div class="container">
+    
+    <a class="navbar-brand" routerLink="/">
+      <img src="./assets/images/logoo.jpg" width="50" class="d-inline-block align-top mr-2 rounded-circle">
+      <span class="font-weight-bold fs-1 h1 text-light " > Shoppy </span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="dropdown" data-target="#main-navbar"
+      aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="main-navbar">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-light" routerLink="/"> Home </a>
+        </li>
+
+        <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link dropdown-toggle text-light" routerLink="/shop" id="navbarDropdown3" role="button" data-delay="350"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Shop
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+            <li><a routerLink="/shop">Our Shop</a></li>
+            <li><a routerLink="/cart">Cart</a></li>
+          </ul>
+        </li>
+
+         <li class="nav-item dropdown dropdown-slide">
+          <a class="nav-link dropdown-toggle text-light" href="about" id="navbarDropdown4" role="button" data-delay="350"
+            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            About
+          </a>
+          <ul class="dropdown-menu text-light" aria-labelledby="navbarDropdown4">
+            <li><a href="about"> About Us </a></li>
+            <li><a href="contact">Contact</a></li>
+            <li><a href="faq">FAQ</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <!-- Navbar-collapse -->
+
+    <ul class="top-menu list-inline mb-0 d-none d-lg-block" id="top-menu">
+
+      <!-- Cart -->
+      <li class="dropdown cart-nav dropdown-slide list-inline-item">
+        <a routerLink="/cart" class="dropdown-toggle cart-icon" data-bs-toggle="dropdown" data-hover="dropdown">
+          <i class="tf-ion-android-cart"></i>
+        </a>
+        <div class="dropdown-menu cart-dropdown">
+         
+
+          <!-- Cart Item -->
+          <div class="media" *ngFor="let item of arr;let index as index">
+            <a [routerLink]="['/product-single/',item._id]">
+              <img class="media-object img-fluid mr-3" [src]="item.picture.substr(19)" alt="image" />
+            </a>
+            <div class="media-body">
+              <h6>{{item.title}}</h6>
+              <div class="cart-price">
+                <span>{{item.quantity}} x</span>
+                <span>{{item.price}}</span>
+              </div>
+            </div>
+            <a class="remove" (click)="deleteitem(index)"><i class="tf-ion-close"></i></a>
+          </div>
+        </div>
+      <!-- new account -->
+      <li class="dropdown cart-nav dropdown-slide list-inline-item">
+        <a href="#" class="dropdown-toggle cart-icon" data-bs-toggle="dropdown" data-hover="dropdown">
+          <i class="tf-ion-android-lock" style="justify-content: center;"></i>
+        </a>
+        <ul class="dropdown-menu cart-dropdown">
+          <!-- <div *ngIf="logged()">
+            <li class="dropdown cart-nav dropdown-slide list-inline-item">
+              <ul class="dropdown-menu cart-dropdown">
+                <li> <a href="listofproducts"> <span class="bi bi-handbag-fill me-2"></span> My products </a></li>
+                <li> <a href="orders"> <span class="bi bi-cart-check-fill me-2"></span> My Orders </a></li>
+                <li> <a href="myprofile"> <span class="bi bi-person-square me-2"></span> My Profile </a></li>
+                <li> <a href="favorites"> <span class="bi bi-heart-fill me-2"></span> My Favorites </a></li>
+                <li> <a href="signup"> <span class="bi bi-person-plus-fill me-2" style="font-size:18px"></span> Sign Up </a></li>
+                <li> <a href="login"> <span class="bi bi-person-bounding-box me-2" style="font-size:18px"></span> Log In </a></li>
+                <li> <a href="/"> <span class="bi bi-box-arrow-right me-2"></span> Log Out </a></li>
+              </ul>        
+            </li> 
+          </div> -->
+         <div *ngIf="logged()">
+          <li> <a routerLink="/listofproducts"> <span class="bi bi-handbag-fill me-2"></span> My products </a></li>
+          <!-- <li> <a routerLink="/orders"> <span class="bi bi-cart-check-fill me-2"></span> My Orders </a></li> -->
+          <li> <a routerLink="/myprofile"> <span class="bi bi-person-square me-2"></span> My Profile </a></li>
+          <li> <a routerLink="/favorites"> <span class="bi bi-heart-fill me-2"></span> My Favorites </a></li>
+          <li> <a routerLink="/" (click)="logout()"> <span class="bi bi-box-arrow-right me-2" ></span> Log Out </a></li>
+         </div>
+         <div *ngIf="!logged()">
+          <li> <a routerLink="/signup"> <span class="bi bi-person-plus-fill me-2" style="font-size:18px"></span> Sign Up </a></li>
+          <li> <a routerLink="/login"> <span class="bi bi-person-bounding-box me-2" style="font-size:18px"></span> Log In </a></li>
+
+         </div>
+
+        </ul>        
+      </li>
+
+
+      
+      <!-- User -->
+      <!-- <a href="#" class="dropdown-toggle cart-icon" data-bs-toggle="dropdown" data-hover="dropdown">
+        <i class="tf-ion-ios-person mr-3"></i>
+      </a> -->
+      
+    </ul>
+  </div>
+</nav>
+

@@ -1,0 +1,97 @@
+<app-header></app-header>
+
+<div style="padding-top: 5.5%;">
+<section class="page-header">
+    <div class="overly"></div> 	
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="content text-center">
+            <h1 class="mb-3 display-4 fw-bold"> Cart </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+  
+          <div >
+            <section >
+              <div class="container py-5" >
+    
+                <div class="row justify-content-center mb-3"   >
+                  <div class="col-md-12 col-xl-10" *ngFor="let item of arr;let index as index" >
+                    <div class="card shadow-0 border-secondary rounded-3"  >
+                      <div class="card-body" >
+                        <div class="row" >
+                          <div>
+                            <a (click)="deleteci(index)" class="remove"><i class="tf-ion-close"></i></a>
+                          </div>
+                          <div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+                              <img [src]="item.picture.substr(19)" class="w-100 rounded" style="height: 180px;" /> 
+                          </div>
+                          <div class="col-md-6 col-lg-6 col-xl-6">
+                            <br>
+                            <!-- {{item.picture.substr(19)}} -->
+                            <h5> {{item.title}} </h5>
+                            <div class="mt-1 mb-0 text-muted small">
+                              <span>{{item.description}}</span>
+                              
+                            </div>
+                            <div class="mb-2 text-muted small">
+                              <span>Unique design</span>
+                              <span class="text-primary"> • </span>
+                              <span>For men</span>
+                              <span class="text-primary"> • </span>
+                              <span>Casual<br /></span>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+                            <br>
+                            <div class="d-flex flex-row align-items-center mb-1">
+                              <h4 class="mb-1 me-1"> {{item.price}} DT</h4>
+                            </div>
+                            <h6 class="text-success">Free shipping</h6>
+                            <div class="d-flex flex-column mt-4">
+                              <a [routerLink]="['/product-single/',item._id]"> <button class="btn btn-sm rounded" style="height: 55px;" type="button"> View Details</button></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </section>
+    
+    
+              <div class="row justify-content-center">
+                <div class="col-lg-4">
+                  <div class="cart-info card border-secondary p-4 mt-4">
+                      <h4 class="mb-4">Cart totals</h4>
+                      <ul class="list-unstyled mb-4">
+                        <li class="d-flex justify-content-between pb-2 mb-3">
+                          <h5>Subtotal</h5>
+                          <span> {{id}} DT</span>
+                        </li>
+                         <li class="d-flex justify-content-between pb-2 mb-3">
+                          <h5>Shipping</h5>
+                          <span>Free</span>
+                        </li>
+                         <li class="d-flex justify-content-between pb-2">
+                          <h5>Total</h5>
+                          <span>{{id}} DT</span>
+                        </li>
+                      </ul>
+                      <a href="checkout" class="btn btn-main btn-small rounded">Proceed to checkout</a>
+                      <div class="text-center">
+                    
+                        <button style="display: center; border-radius: 8px; width: 200px;" type="button" class="btn1 btn-sm mt-2 fw-bold fs-6" (click)="clearc()"> Clear Cart </button>
+                      
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>
+

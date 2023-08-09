@@ -1,0 +1,14 @@
+.gradient-custom {
+    /* fallback for old browsers */
+    background:white;
+    border: #000000 1px solid;
+    
+}
+.btn  {
+        background-color: #fb5c42;
+        color: white;  
+        font-size: 15px;
+        padding: 10px;
+        width: 150px;
+        margin-left: 80px;
+}   

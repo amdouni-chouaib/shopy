@@ -1,0 +1,274 @@
+
+<div style="padding-top: 100px;">
+<!-- Welcoming -->
+  <div class="card1 bg-black" style="height: 700px ;width: 100%;">
+    <div class="row g-0">
+      <div class="col-md-6 pt-5">
+        <div class="card-body">
+          <p class="card-text display-3 text-center text-light">
+            Buy and Sell <br>
+            your Clothes <br>
+            without leaving your Home.
+          </p>
+          <br>
+          <p class="card-text fw-lighter fs-5 text-light text-center">
+            The only app that lets you make money <br> 
+            by selling your clothes and buy new ones at 70% off.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-3 pt-3">
+        <img src="./assets/images/app2.png" class="img-fluid align-center rounded-start">
+      </div>
+      <div class="col-md-3 pt-5">
+        <img src="./assets/images/app3.png" class="img-fluid rounded-start">
+      </div>
+    </div>
+   
+  </div>
+</div>
+
+  <!-- Numbers -->
+  <section class="users my-5 text-center" id="users">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-3 col-lg-3">
+            <div class="card border-dark">
+                <div class="card-body">
+                  <img src="./assets/images/man.png" width="100" class="img">
+                  <h5 class="card-title mt-4 fs-1">{{un}}</h5>
+                  <p class="card-text fs-5">Users</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-3 col-lg-3">
+            <div class="card border-dark">
+                <div class="card-body">
+                    <img src="./assets/images/fashion.png" width="100" class="img-fluid">
+                    <h5 class="card-title mt-4 fs-1">{{pn}}</h5>
+                    <p class="card-text fs-5">Products</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-3 col-lg-3">
+            <div class="card border-dark">
+                <div class="card-body">
+                    <img src="./assets/images/download2.png" width="100" class="img-fluid">
+                    <h5 class="card-title mt-4 fs-1">+500k</h5>
+                    <p class="card-text fs-5">Downloads</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="row justify-content-center">
+    <div class="carddd card-5 m-5">
+      <div class="col-lg-6">
+      <img src="assets/images/b1.png" width="400" height="300">
+      </div>
+      <p class="card__exit">※</p>
+      <div class="col-lg-6 offset-lg-6">
+      <span class="text-light display-6"> Deal of the day 50% Off </span>
+              <p class="text-md mt-3 text-white"> Hurry up! Limited time offer.Grab ot now! </p>
+      <a href="shop" class="btn btn-main rounded"><i class="ti-bag mr-2"></i> Shop Now </a>
+      </div>
+    </div>
+    </div>
+  <!-- New arrivals -->
+  <section class="section products-main">
+      <div class="container" >
+            <div class="row justify-content-center" >
+                <div class="col-lg-8">
+                    <div class="title text-center">
+                        <h2 style="color: #fb5c42;">New arrivals</h2>
+                        <p>The best Online sales to shop these weekend</p>
+                    </div>
+                </div>
+            </div>
+            <section class="users my-5 text-center" id="users" >
+              <div class="container" style="display: flex;flex-wrap: wrap;justify-content: space-around;" >
+                <div class="row justify-content-center"   >
+                  <div class="col-sm-12 col-md-3 col-lg-3"  *ngFor="let item of last ;let index = index"  >
+                      <div class="card border-dark"  style="width: 260px; height: 400px; display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                          <div class="card-body" style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                            <div style="display: flex; justify-content: space-between;">
+                          </div>
+                            <br>
+
+                            <img class="img-fluid mb-3 img-first mt-2 mx-auto d-block" style="width: 200px;" [src]="item.imageCover.substr(19)" alt="product-img" />
+                            
+                            <h2 class="product-title h5 mb-0"><a href="#">{{item.title.substr(0,25)}}...</a></h2>
+                            <span class="price">
+                                {{item.price}} DT
+                                <div class="product-hover" style="display: flex;justify-content: space-around;">
+                                  <a><i class="tf-ion-android-cart" style="width: 70px; height:70px;" (click)="cart(item.id)"></i></a>
+                                  <a><i class="tf-ion-ios-heart" style="width: 70px; height:70px;" (click)="wish(item.id)"></i></a>
+                                </div>
+                            </span>
+                            <br>
+                            
+                          </div>
+
+                      </div>
+                      <br>
+                  </div>
+        
+                </div>
+                  
+                </div>
+            </section>
+        <!-- <div class="row">
+          <div style="display: flex;flex-wrap: wrap;justify-content: space-around;">
+            <div  *ngFor="let item of last ;let index = index" class="col-lg-4 col-12 col-md-6 col-sm-6 mb-5" >
+              <div class="product border border-secondary" style="width: 260px; height: 470px; display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                <div class="product-wrap">
+                    <a [routerLink]="['/product-single/',item.id]">
+                      <img class="img-fluid mb-3 img-first mt-2 mx-auto d-block" style="width: 200px;" [src]="item.imageCover.substr(19)" alt="product-img" />
+                    </a>
+                </div>
+    
+                <div class="product-hover-overlay">
+                    <a><i class="tf-ion-android-cart" (click)="cart(item.id)"></i></a>
+                    <a><i class="tf-ion-ios-heart" (click)="wish(item.id)"></i></a>
+                  </div>
+    
+                <div class="product-info">
+                    <h2 class="product-title h5 mb-0"><a href="#">{{item.title}}</a></h2>
+                    <span class="price">
+                        {{item.price}} DT
+                    </span>
+                </div>
+              </div>
+          </div>
+           </div>
+        </div>
+      </div> -->
+      
+
+    <!-- Pub -->
+    <div class="row justify-content-center">
+    <div class="carddd card-5 m-5">
+      <div class="col-lg-6">
+      <img src="assets/images/b1.png" width="400" height="300">
+      </div>
+      <p class="card__exit">※</p>
+      <div class="col-lg-6 offset-lg-6">
+      <span class="text-light display-6"> Deal of the day 50% Off </span>
+              <p class="text-md mt-3 text-white"> Hurry up! Limited time offer.Grab ot now! </p>
+      <a href="shop" class="btn btn-main rounded"><i class="ti-bag mr-2"></i> Shop Now </a>
+      </div>
+    </div>
+    </div>
+    
+  <!-- List -->
+  <section class="section products-main">
+    <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="title text-center">
+                  <h2 style="color: #fb5c42;">best sellers</h2>
+                  <p>The best Online sales to shop these weekend</p>
+                </div></div>
+          </div>
+  
+      <div class="row">
+        <!-- Product1 -->
+        <section class="users my-5 text-center" id="users" >
+          <div class="container" style="display: flex;flex-wrap: wrap;justify-content: space-around;" >
+            <div class="row justify-content-center"   >
+              <div class="col-sm-12 col-md-3 col-lg-3"  *ngFor="let item of last ;let index = index"  >
+                  <div class="card border-dark"  style="width: 260px; height: 400px; display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                      <div class="card-body" style="display: flex;justify-content: center;align-items: center;flex-direction: column;">
+                        <div style="display: flex; justify-content: space-between;">
+                      </div>
+                        <br>
+
+                        <img class="img-fluid mb-3 img-first mt-2 mx-auto d-block" style="width: 200px;" [src]="item.imageCover.substr(19)" alt="product-img" />
+                        
+                        <h2 class="product-title h5 mb-0"><a href="#">{{item.title.substr(0,25)}}...</a></h2>
+                        <span class="price">
+                            {{item.price}} DT
+                            <div class="product-hover" style="display: flex;justify-content: space-around;">
+                              <a><i class="tf-ion-android-cart" style="width: 70px; height:70px;" (click)="cart(item.id)"></i></a>
+                              <a><i class="tf-ion-ios-heart" style="width: 70px; height:70px;" (click)="wish(item.id)"></i></a>
+                            </div>
+                        </span>
+                        <br>
+                        
+                      </div>
+
+                  </div>
+                  <br>
+              </div>
+         
+      
+            
+      
+             
+          
+            </div>
+              
+            </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <!-- Advantages -->
+  <section class="features border-top">
+    <br>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="title text-center">
+                <h2 style="color: #fb5c42;"> Our advantages </h2>
+                <p> Why Shoppy? </p>
+            </div>
+        </div>
+      </div>
+    
+      <div class="row justify-content-center">
+        <div class="col-lg-3 col-sm-6 col-md-6">
+         <div class="cardd shadoww">
+           <div class="feature-block p-3">
+             <i class="tf-ion-android-bicycle"></i>
+             <div class="content">
+               <h5>Free Shipping</h5>
+               <p>On all order over 39.00 DT</p>
+             </div>
+           </div>
+         </div>
+        </div>
+      
+       
+        <div class="col-lg-3 col-sm-6 col-md-6">
+         <div class="cardd shadoww">
+           <div class="feature-block p-3">
+             <i class="tf-key"></i>
+             <div class="content">
+               <h5>Secure Checkout</h5>
+               <p>100% Protected by e-pay</p>
+             </div>
+           </div>
+          </div>
+        </div>
+       
+        <div class="col-lg-3 col-sm-6 col-md-6">
+         <div class="cardd shadoww">
+           <div class="feature-block p-3">
+             <i class="tf-clock"></i>
+             <div class="content">
+               <h5>24/7 Support</h5>
+               <p>All time customer support </p>
+             </div>
+           </div>
+          </div>
+        </div>
+</div>
+</div>    
+</section>
+</div>
+<br> 

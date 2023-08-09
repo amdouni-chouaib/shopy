@@ -1,0 +1,67 @@
+<app-header></app-header>
+
+<div style="padding-top: 7%;">
+<section class="page-header">
+    <div class="overly"></div> 	
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="content text-center">
+            <h1 class="mb-3 display-4 fw-bold"> Filter </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section products-main">
+    <div class="container">
+          
+      <div class="row">
+        <!-- Product1 -->  
+        <!-- display array-->
+       <div style="display: flex; justify-content: space-around;">
+        <div *ngFor="let item of product | paginate: { itemsPerPage: 4, currentPage: p }" >
+
+          <div class="col-lg-3 col-12 col-md-6 col-sm-6 mb-5" style="width: 300px;" >
+            <div class="product border border-secondary">
+              <div class="product-wrap">
+                  <a [routerLink]="['/product-single/',item.id]">
+                    <img class="img-fluid w-100 mb-3 img-first" [src]="item.imageCover.substr(19)" alt="product-img" />
+                  </a>
+              </div>
+  
+              <div class="product-info">
+                <h2 class="product-title h4 mb-0 fw-bold"> {{item.title}} </h2>
+                <span class="price">
+                  {{item.price}} DT
+                </span>
+                <br>
+                <a [routerLink]="['/product-single/',item.id]">
+                <button style="display: center; border-radius: 8px;" type="button" class="btn1 btn-sm"> Quick View </button>
+                </a>
+                
+                <a>
+                <button style="display: center; border-radius: 8px;" type="button" class="btn btn-sm" (click)="cart(item.id)"> Add to Cart </button>
+                </a>
+                
+            </div>
+              <br>
+          </div>
+          </div>
+
+        </div>
+       </div>
+
+  
+       <div style="display: flex; justify-content: center;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+  
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <app-footer></app-footer>
+

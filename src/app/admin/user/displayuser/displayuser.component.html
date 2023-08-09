@@ -1,0 +1,46 @@
+
+
+      <div class="col-md-10" style="margin-left: 300px;">
+        <table class="table table-bordered" style="background-color: rgb(255, 255, 255); margin-top: 130px;">
+            <thead>
+                <tr scope="col"><h1>All Users</h1></tr>
+
+              <tr>
+                <th scope="col"><div class="text-black">ID</div></th>
+                <th scope="col"><div class="text-black">Username</div></th>
+                <th scope="col"><div class="text-black">Email</div></th>
+                <th scope="col"><div class="text-black">Role</div></th>
+                <th scope="col"><div class="text-black">Action</div></th>
+            </tr>
+            </thead>
+            <tbody >
+              <tr *ngFor="let item of arr | paginate: { itemsPerPage: 3, currentPage: p };let index as index ;let i = index">
+                <td scope="col"><div class="text-black">{{i+1}}</div></td>
+
+                <td scope="col"><div class="text-black">{{item.name}}</div></td>
+                <td scope="col"><div class="text-black">{{item.email}}</div></td>
+                <td scope="col"><div class="text-black">{{item.role}}</div></td>
+                <td><button class="btn btn-danger rounded btn-small" type="submit" (click)="deleteuser(index)">delete</button></td>
+                
+            </tr>
+            
+            
+        </tbody>
+    </table>
+    <br><br><br>
+    <div style="display: flex; justify-content: center;">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+          <div>
+            
+        </div>
+        
+
+         
+    </div>
+    
+
+
+
+
+

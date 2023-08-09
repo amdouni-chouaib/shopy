@@ -1,0 +1,152 @@
+<app-header></app-header>
+
+<div style="padding-top: 5.5%;">
+<section class="page-header">
+    <div class="overly"></div> 	
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="content text-center">
+            <h1 class="mb-3 display-4 fw-bold"> Shop </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+  
+<section class="products-shop section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="row align-items-center">
+            <div class="col-lg-12 mb-4 mb-lg-0">
+              <div class="section-title">
+                  <h2 class="d-block text-left-sm">Shop</h2>
+  
+                  <div class="heading d-flex justify-content-between mb-5">
+                    <p class="result-count mb-0"> Showing 1–6 of {{result}} results </p>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+      <!-- Products -->
+      <div class="row" >
+
+         <!-- Product1 -->
+         <div style="display: flex;flex-wrap: wrap;justify-content: space-around;">
+          <div  *ngFor="let item of collection | paginate: { itemsPerPage: 6, currentPage: p };let index = index" class="col-lg-4 col-12 col-md-6 col-sm-6 mb-5" >
+            <div class="product border border-secondary" style="width: 260px; height: 400px; display: flex;justify-content: center;align-items: center;flex-direction: column;">
+              <div class="product-wrap">
+                  <a [routerLink]="['/product-single/',item.id]">
+                    <img class="img-fluid mb-3 img-first mt-2 mx-auto d-block" style="width: 200px;" [src]="item.imageCover.substr(19)" alt="product-img" />
+                  </a>
+              </div>
+  
+              <div class="product-hover-overlay">
+                  <a><i class="tf-ion-android-cart" (click)="cart(item.id)"></i></a>
+                  <a><i class="tf-ion-ios-heart" (click)="wish(item.id)"></i></a>
+                </div>
+  
+              <div class="product-info">
+                  <h2 class="product-title h5 mb-0"><a href="#">{{item.title}}</a></h2>
+                  <span class="price">
+                      {{item.price}} DT
+                  </span>
+              </div>
+          </div>
+        </div>
+         </div>
+         
+              <div style="display: flex; justify-content: center;">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+          </div>				
+    </div>
+
+
+  <div class="col-md-3">
+  <!-- sorting -->
+  <form class="mb-5">
+
+    <!-- sorting -->
+    <section class="widget widget-sorting mb-5 mt-5">
+      <h3 class="widget-title h4 mb-4 fw-bold"> Default Sorting </h3>
+
+      <form class="ordering" method="get">
+        <select [(ngModel)]="filter" name="orderby" class="orderby form-control border-dark rounded" aria-label="Shop order" >
+           <option value="" selected="selected"> Default sorting </option>
+           <option value="rate"> Sort by average rating </option>
+           <option value="latest"> Sort by latest </option>
+           <option value="highp"> Sort by price: low to high </option>
+           <option value="lowp"> Sort by price: high to low </option>
+       </select> 
+       <input type="hidden" name="paged" value="1">
+   </form> 
+
+      <br>
+      <button style="display: flex; border-radius: 8px; height: 40px;" type="button" class="btn btn-small" (click)="filtering()"> Filter </button>
+
+    </section>
+
+  </form>
+  
+  <!-- popular product -->
+  <section class="widget widget-popular mb-5">
+    <h3 class="widget-title mb-4 h4 fw-bold"> Popular Products </h3>
+
+    <!-- Product1 -->
+    <a class="card flex-row border-secondary" routerLink="/product-single">
+      <img class="card-img-left example-card-img-responsive" src="assets/images/men9.jpg" width="70" height="110"/>
+      <div class="card-body">
+        <p class="card-title h5 h4-sm"> Adidas - Brasilia Medium Backpack </p>
+        <p class="card-text"> 27.99 DT </p>
+      </div>
+    </a>
+    <br>
+
+    <!-- Product2 -->
+    <a class="card flex-row border-secondary" routerLink="/product-single">
+      <img class="card-img-left example-card-img-responsive" src="assets/images/womenn11.jpg" width="70" height="110"/>
+      <div class="card-body">
+        <p class="card-title h5 h4-sm"> Heel </p>
+        <p class="card-text"> 27.99 DT </p>
+      </div>
+    </a>
+    <br>
+
+    <!-- Product3 -->
+    <a class="card flex-row border-secondary" routerLink="/product-single">
+      <img class="card-img-left example-card-img-responsive" src="assets/images/women3.jpg" width="70" height="110"/>
+      <div class="card-body">
+        <p class="card-title h5 h4-sm"> Bag - Parfois </p>
+        <p class="card-text"> 27.99 DT </p>
+      </div>
+    </a>
+    <br>
+
+    <!-- Product4 -->
+    <a class="card flex-row border-secondary" routerLink="/product-single">
+      <img class="card-img-left example-card-img-responsive" src="assets/images/women12.jpg" width="70" height="110"/>
+      <div class="card-body">
+        <p class="card-title h5 h4-sm"> Shoes </p>
+        <p class="card-text"> 27.99 DT </p>
+      </div>
+    </a>
+    <br>
+
+    <!-- Product5 -->
+    <a class="card flex-row border-secondary" routerLink="/product-single">
+      <img class="card-img-left example-card-img-responsive" src="assets/images/women8.jpg" width="70" height="110"/>
+      <div class="card-body">
+        <p class="card-title h5 h4-sm"> Trouser </p>
+        <p class="card-text"> 38.00 DT </p>
+      </div>
+    </a>
+
+  </section>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>

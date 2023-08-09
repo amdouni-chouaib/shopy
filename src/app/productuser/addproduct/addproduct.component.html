@@ -1,0 +1,70 @@
+<form [formGroup]="myForm" (ngSubmit)="resF()">
+  
+
+  <div style="display: flex;justify-content: center;">
+    <div class="card" style="width: 50rem; ">
+        <div class="card-body">
+          <h5 style="text-align: center;" class="card-title">Add Product</h5>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <input formControlName="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Product Title">
+            <!-- title.email && title.invalid && title.touched -->
+           <div *ngIf="control.controls['title'].invalid && control.controls['title'].touched">
+             <div class="alert alert-danger" *ngIf="control.controls['title'].errors['required'] ">
+                title is required.
+             </div>
+             <!-- <div class="alert alert-danger" *ngIf="control.controls['title'].errors['email'] ">
+               email is required.
+            </div> -->
+
+           </div>
+          </div>
+          <div class="mb-3">
+            <label>Description</label>
+            <input formControlName="description" type="text" class="form-control"  placeholder="Description">
+            <div *ngIf="control.controls['description'].invalid && control.controls['description'].touched">
+              <div class="alert alert-danger" *ngIf="control.controls['description'].errors['required'] ">
+                 description is required.
+              </div>
+              </div>
+          </div>
+          <div style="display: flex; justify-content: space-around;">
+            <select formControlName="gender" class="form-select" aria-label="Default select example">
+                <option selected>select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                
+              </select>
+              <div *ngIf="control.controls['gender'].invalid && control.controls['gender'].touched">
+                <div class="alert alert-danger" *ngIf="control.controls['gender'].errors['required'] ">
+                   gender is required.
+                </div>
+                </div>
+              <select formControlName="type" class="form-select" aria-label="Default select example">
+                <option selected>select type</option>
+                <option value="clothes">clothes</option>
+                <option value="shoes">shoes</option>
+                <option value="accessory">accessory</option>
+                <option value="bags">bags</option>
+              </select>
+              <div *ngIf="control.controls['type'].invalid && control.controls['type'].touched">
+                <div class="alert alert-danger" *ngIf="control.controls['type'].errors['required'] ">
+                   type is required.
+                </div>
+                </div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">price</label>
+            <input formControlName="prix" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Price">
+            <div *ngIf="control.controls['prix'].invalid && control.controls['prix'].touched">
+              <div class="alert alert-danger" *ngIf="control.controls['prix'].errors['required'] ">
+                 price is required.
+              </div>
+              </div>
+          </div>
+          <button  style="display: flex; border-radius: 8px ;" type="submit" class="btn btn-secondary">Add Product</button>
+
+        </div>
+      </div>
+  </div>
+</form>

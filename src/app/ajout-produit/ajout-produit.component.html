@@ -1,0 +1,185 @@
+<app-header></app-header>
+
+<div style="padding-top: 7%;">
+<div class="page-wrapper">
+   <form class="add-form" [formGroup]="myForm" (ngSubmit)="produitup()">
+    <div class="checkout shopping">
+       <div class="container">
+          <div class="row">
+             <div class="col-lg-8 pr-5">
+                <div class="InRegardsto">
+                   <h4 class="mb-4 border-bottom pb-4"> In Regards to  </h4>
+                   
+                      <div class="row">
+                         <div class="col-lg-12">
+                             <div class="form-group mb-4">
+                               <label for="item_name"> Title </label>
+                               <input type="text" class="form-control form-control-lg rounded"  formControlName="title"/>
+                            </div>
+                            <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.title.invalid && (myForm.controls.title.dirty || myForm.controls.title.touched)">
+                              <div *ngIf="myForm.controls.title.hasError('required')">title is required</div>
+
+                              <div *ngIf="myForm.controls.title.hasError('minlength')">title minlength is 3</div>
+                           </div>
+                         </div>
+
+                         <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label for="Category"> Category </label>
+                              <select name="" id="Category" class="form-control"  formControlName="category">
+                                 <option value="" selected>SELECT PLEASE</option>
+                                 <option *ngFor="let item of arr"  [value]="item.id"  >{{item.name}}</option>
+                                    
+                              
+                              </select>
+                              <!-- <input type="text" class="form-control form-control-lg rounded" />                 -->        
+                              </div>
+                              <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.category.invalid && (myForm.controls.category.dirty || myForm.controls.category.touched)">
+                                 <div *ngIf="myForm.controls.category.hasError('required')">category is required</div>
+                             </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                           <div class="form-group mb-4">
+                             <label for="SubCategory"> SubCategory </label>
+                             <select name="" id="SubCategory" class="form-control"  formControlName="subcategories">
+                                <option value="" selected>SELECT PLEASE</option>
+                              <option *ngFor="let item of sub" [value]="item.id"  selected>{{item.name}}</option>
+                        
+                        </select>                     
+                       </div>
+                       <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.subcategories.invalid && (myForm.controls.subcategories.dirty || myForm.controls.subcategories.touched)">
+                        <div *ngIf="myForm.controls.subcategories.hasError('required')">subcategories is required</div>
+                    </div>
+                     </div>
+
+                        <!-- <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label for="Color"> Color </label>
+                              <input type="text" class="form-control form-control-lg rounded"  formControlName="colors"/>     
+
+                           </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+                              <div *ngIf="myForm.controls.colors.hasError('required')">colors is required</div>
+                          </div>
+                        </div> -->
+
+                        <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label for="State"> Quantity </label>
+                              <input type="number" class="form-control form-control-lg rounded" formControlName="quantity" />                           </div>
+                        </div>
+                        <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.quantity.invalid && (myForm.controls.quantity.dirty || myForm.controls.quantity.touched)">
+                           <div *ngIf="myForm.controls.quantity.hasError('required')">quantity is required</div>
+                       </div>
+                        <div class="col-lg-12">
+                            <div class="form-group mb-4">
+                              <label for="Description"> Description </label>
+                              <textarea class="form-control" id="msg" cols="30" rows="5" formControlName="description"></textarea>
+                           </div>
+                           <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.description.invalid && (myForm.controls.description.dirty || myForm.controls.description.touched)">
+                              <div *ngIf="myForm.controls.description.hasError('required')">description is required</div>
+                              <div *ngIf="myForm.controls.description.hasError('minlength')">description minlength is 40</div>
+                           </div>
+                        </div>
+<!-- 
+                        <div class="col-lg-12">
+                           <label for="Size"> Size </label>
+                           <br>
+                           <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                            <label class="form-check-label" for="inlineRadio1"> L </label>
+                          </div>
+                          
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                            <label class="form-check-label" for="inlineRadio2"> M </label>
+                          </div>
+                          
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label class="form-check-label" for="inlineRadio3"> S </label>
+                          </div>
+
+                          <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+                            <label class="form-check-label" for="inlineRadio3"> XS </label>
+                          </div>
+                           </div>
+                      </div> -->
+                        
+                </div>
+
+                <br>
+                <div class="Price">
+                    <h4 class="mb-4 border-bottom pb-4"> Price </h4>
+                    
+                       <div class="row">
+                          <div class="col-lg-12">
+                              <div class="form-group mb-4">
+                                <label for="selling_price"> Selling Price </label>
+                                <input type="number" class="form-control form-control-lg rounded" formControlName="priceAfterDiscount"/>
+                             </div>
+                             <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.priceAfterDiscount.invalid && (myForm.controls.priceAfterDiscount.dirty || myForm.controls.priceAfterDiscount.touched)">
+                              <div *ngIf="myForm.controls.priceAfterDiscount.hasError('required')">price After Discount is required</div>
+                          </div>
+                          </div>
+ 
+                          <div class="col-lg-12">
+                             <div class="form-group mb-4">
+                               <label for="original_price"> Original Price </label>
+                               <input type="number" class="form-control form-control-lg rounded" formControlName="price" />                           </div>
+                             </div>  
+                             <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.price.invalid && (myForm.controls.price.dirty || myForm.controls.price.touched)">
+                              <div *ngIf="myForm.controls.price.hasError('required')">Price is required</div>
+                          </div> 
+                          </div>
+                          
+                 </div>
+             </div>
+ 
+             <!-- Photos -->
+             <div class="col-md-6 col-lg-4">
+                <div class="product-checkout-details mt-5 mt-lg-0">
+                      <h4 class="mb-4 border-bottom pb-4"> Photos </h4>
+                      <div class="card">
+                        <div class="form-row text-center">
+                        <p style="margin-top: 80px;"> You have not added any photos yet </p>
+                        <input id="a" type="file" (change)="onFileSelectedd($event,20)" formControlName="imageCover">
+
+                        </div>
+                        <br>
+                     </div>
+                     
+                     <br>
+                     <!-- <div class="card">
+                        <div class="form-row text-center">
+                           <p style="margin-top: 80px;"> You have not added any photos yet </p>
+                           <input type="file" multiple (change)="onFileSelected($event, 1)" formArrayName="images">
+                           
+                        </div>
+                        <br>
+                     </div> -->
+                     
+                  </div>
+                  <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.imageCover.invalid && (myForm.controls.imageCover.dirty || myForm.controls.imageCover.touched)">
+                     <div *ngIf="myForm.controls.imageCover.hasError('required')">image is required</div>
+                 </div>
+                  
+                  <br>
+                  <div class="form-row text-center">
+                     <Button class="btn btn-danger" type="submit">I sell</Button>
+                  </div>
+               </div>
+            </div>
+         </div>
+       <input type="text" [value]="id._id"  hidden formArrayName="createdBy">
+    </div>
+    </div>
+   </form>
+ </div>
+ 
+ 
+    
+
+  

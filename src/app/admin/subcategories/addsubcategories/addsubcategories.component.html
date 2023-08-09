@@ -1,0 +1,36 @@
+
+<form [formGroup]="myForm" (ngSubmit)="addcat()" >
+    <div class="col-md-10">
+        <div style="display: flex;justify-content: center;">
+            <div class="card" style="width: 50rem; border-color: black; margin-top: 150px;">
+                <div class="card-body">
+                  <h5 style="text-align: center;" class="card-title fs-4 mt-4">Add SubCategories</h5>
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;">New SubCategory</label>
+                    <input formControlName="name" type="text" style="margin-left: 20px; width: 750px;" class="form-control rounded mt-2" id="exampleFormControlInput1" placeholder="New SubCategory">
+                   </div>
+                   <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.name.invalid && (myForm.controls.name.dirty || myForm.controls.name.touched)">
+                    <div *ngIf="myForm.controls.name.hasError('required')">Subcategory name is required</div>
+                  </div>
+                   <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label" style="margin-left: 20px;"> Category Type</label>
+                    <select formControlName="category" class="form-control">
+                        <option *ngFor="let item of arr"  [value]="item._id">{{item.name}}</option>
+                    </select>
+                 </div>
+                 <div class="alert alert-danger" role="alert" *ngIf="myForm.controls.category.invalid && (myForm.controls.category.dirty || myForm.controls.category.touched)">
+                    <div *ngIf="myForm.controls.category.hasError('required')">Category type is required</div>
+                  </div>
+                  
+                  <br>
+                  
+                  <div class="text-center">
+                  <button  style="display: center; border-radius: 8px ; background-color: #fb5c42; color: #ffffff;" type="submit" class="btn rounded">Add Categories</button>
+                  </div>
+        
+                  <br>
+                </div>
+              </div>
+          </div>
+        </div>
+</form>
